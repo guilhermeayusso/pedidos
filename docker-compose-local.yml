@@ -1,0 +1,17 @@
+networks:
+  spring-boot-mysql-network:
+    driver: bridge
+services:
+  mysql-service:
+    image: mysql:5.7
+    container_name: db_pedidos
+    networks:
+      - spring-boot-mysql-network
+    restart: always
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=fiap@123
+      - MYSQL_DATABASE=pedidos
